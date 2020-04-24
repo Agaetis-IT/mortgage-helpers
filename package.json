@@ -1,0 +1,33 @@
+{
+  "name": "mortgage-helpers",
+  "version": "1.0.0",
+  "description": "A suite of JavaScript functions to compute mortgage values, such as monthly payments",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Agaetis-IT/mortgage-helpers.git"
+  },
+  "keywords": [
+    "mortgage",
+    "computation",
+    "monthly",
+    "payment",
+    "loan"
+  ],
+  "author": "Bastien HUMBERT",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Agaetis-IT/mortgage-helpers/issues"
+  },
+  "homepage": "https://github.com/Agaetis-IT/mortgage-helpers#readme",
+  "devDependencies": {
+    "@types/jest": "^25.2.1",
+    "jest": "^25.4.0",
+    "ts-jest": "^25.4.0",
+    "typescript": "^3.8.3"
+  }
+}
