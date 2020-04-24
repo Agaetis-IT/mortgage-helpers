@@ -1,1 +1,2 @@
-export {getMonthlyPayments} from './mortgageHelpers'
+export { default } from './mortgageHelpers'
+export * from './mortgageHelpers'
