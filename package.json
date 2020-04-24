@@ -1,6 +1,6 @@
 {
   "name": "mortgage-helpers",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "A suite of JavaScript functions to compute mortgage values, such as monthly payments",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
