@@ -53,23 +53,21 @@ If one param is missing or is not a valid number, it will throw an error.
 
 ### getInterestRate
 
-This function will give you a loan's interest rate, based on loanAmount (what has been borrowed without interests), months duration and monthly payments. This is kinda the reverse of `getMonthlyPayments`. The interest rate will be a number with a maximum of 3 decimals.
+This function will give you a loan's interest rate, based on loan amount (what has been borrowed without interests), months duration and monthly payments. This is kinda the reverse of `getMonthlyPayments`. The interest rate will be a number with a maximum of 3 decimals.
 
 ```js
 getInterestRate: (
   loanAmount: number,
   months: number
   monthlyPayments: number
-) => {
-  interestRate: number,
-};
+) => number;
 ```
 
 If one param is missing or is not a valid number, it will throw an error. Also please note this function may fail if computation is too hard (it mainly occurs if there are too many decimals in params)
 
 ## Contributing
 
-Any new mortgage-related function is welcome! Feel free to open an issue, or a pull request even, just make sure all tests pass (and please add new ones!).
+Any new mortgage-related function is welcome! Feel free to open a pull request, just make sure all tests pass (and please add new ones!).
 
 ## License
 

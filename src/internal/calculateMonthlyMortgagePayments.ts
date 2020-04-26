@@ -1,6 +1,4 @@
-
-
-const calculateMonthlyPayments = (loanAmount: number, interestRate: number, months: number) => {
+const calculateMonthlyPayments = (loanAmount: number, interestRate: number, months: number): number => {
   if (interestRate === 0) {
     return loanAmount / months
   }

@@ -3,3 +3,5 @@ src
 tests
 jest.config.js
 .gitignore
+.eslintrc
+.prettierrc
