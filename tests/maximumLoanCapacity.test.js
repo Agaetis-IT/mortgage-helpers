@@ -9,12 +9,7 @@ test('correct maximum loan capacity', () => {
 });
 
 test('incorrect MLC', () => {
-  try {
-    mortgageHelpers.getMaximumBorrowingCapacity(4000, 1, undefined, undefined)
-    expect.not(true)
-  } catch(e) {
-    expect(e).toBe("Either there are missing/invalid params, or availableRevenue/months/maximumDebtRatio is equal to 0 which is not possible")
-  }
+  expect(() => mortgageHelpers.getMaximumBorrowingCapacity(4000, 1, undefined, undefined)).toThrow("Either there are missing/invalid params, or availableRevenue/months/maximumDebtRatio is equal to 0 which is not possible")
 });
 
 test('MMP with 0 interest', () => {
@@ -34,10 +29,5 @@ test('MMP with strings', () => {
 });
 
 test('MMP with incorrect string param', () => {
-  try {
-    mortgageHelpers.getMaximumBorrowingCapacity('test', 1, '30', 33)
-    expect.not(true)
-  } catch(e) {
-    expect(e).toBe("Either there are missing/invalid params, or availableRevenue/months/maximumDebtRatio is equal to 0 which is not possible")
-  }
+    expect(() => mortgageHelpers.getMaximumBorrowingCapacity('test', 1, '30', 33)).toThrow("Either there are missing/invalid params, or availableRevenue/months/maximumDebtRatio is equal to 0 which is not possible")
 });
