@@ -20,7 +20,7 @@ You can also directly import functions like this: `import {getMonthlyPayments} f
 
 ### getMonthlyPayments
 
-This function will give you the fixed monthly amount to pay for a mortgage, based on its amount, interest rate and number of months.
+This function will give you the **fixed** monthly amount to pay for a mortgage, based on its amount, interest rate and number of months.
 
 ```js
 getMonthlyPayments: (
@@ -34,7 +34,7 @@ If one param is missing or is not a valid number, it will throw an error.
 
 ### getMaximumBorrowingCapacity
 
-This function will give you the maximum amount you can borrow, based on available revenue (monthly with deduced charges), interest rate, number of months and max debt ratio (a percentage which can either be a float, ie: .36, or a number like 36, which means either way 36%).
+This function will give you the maximum amount you can borrow, based on available revenue (monthly with deduced charges), interest rate, number of months and max debt ratio (a percentage which can either be a float, ie: `0.36`, or a number like `36`, which means either way `36%`).
 
 ```js
 getMaximumBorrowingCapacity: (
@@ -50,6 +50,22 @@ getMaximumBorrowingCapacity: (
 ```
 
 If one param is missing or is not a valid number, it will throw an error.
+
+### getInterestRate
+
+This function will give you a loan's interest rate, based on loanAmount (what has been borrowed without interests), months duration and monthly payments. This is kinda the reverse of `getMonthlyPayments`. The interest rate will be a number with a maximum of 3 decimals.
+
+```js
+getInterestRate: (
+  loanAmount: number,
+  months: number
+  monthlyPayments: number
+) => {
+  interestRate: number,
+};
+```
+
+If one param is missing or is not a valid number, it will throw an error. Also please note this function may fail if computation is too hard (it mainly occurs if there are too many decimals in params)
 
 ## Contributing
 
