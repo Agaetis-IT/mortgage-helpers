@@ -3,9 +3,9 @@ const mortgageHelpers = require('../src/mortgageHelpers')
 
 test('correct maximum loan capacity', () => {
   expect(mortgageHelpers.getMaximumBorrowingCapacity(4000, 1, 30, 33)).toEqual({
-    interestsAmount: 500.49,
-    loanAmount: 38592.52,
-    monthlyPayment: 1303.101,
+    interestsAmount: 506.98,
+    loanAmount: 39093.02,
+    monthlyPayment: 1320,
   })
 })
 
@@ -25,9 +25,9 @@ test('MMP with 0 interest', () => {
 
 test('MMP with strings', () => {
   expect(mortgageHelpers.getMaximumBorrowingCapacity('4000', 1, '30', 33)).toEqual({
-    interestsAmount: 500.49,
-    loanAmount: 38592.52,
-    monthlyPayment: 1303.101,
+    interestsAmount: 506.98,
+    loanAmount: 39093.02,
+    monthlyPayment: 1320,
   })
 })
 

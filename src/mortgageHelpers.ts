@@ -28,7 +28,9 @@ export const getMaximumBorrowingCapacity = (
     isNaN(availableRevenue) ||
     isNaN(interestRate) ||
     isNaN(months) ||
-    isNaN(maximumDebtRatio)
+    isNaN(maximumDebtRatio) ||
+    maximumDebtRatio <= 0 || 
+    maximumDebtRatio > 100
   ) {
     throw 'Either there are missing/invalid params, or availableRevenue/months/maximumDebtRatio is equal to 0 which is not possible'
   }
