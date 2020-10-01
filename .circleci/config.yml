@@ -1,0 +1,37 @@
+version: 2.1
+jobs:
+  tests:
+    working_directory: ~/mortgage-helpers
+    docker:
+      - image: node:12.18
+    steps:
+      - checkout
+      - run: yarn --frozen-lockfile --non-interactive && yarn test && yarn tsc
+  publish:
+    working_directory: ~/mortgage-helpers
+    docker:
+      - image: node:12.18
+    steps:
+      - checkout
+      # build
+      - run: yarn --frozen-lockfile --non-interactive && yarn tsc
+      # Auth
+      - run: echo _auth=$NPM_PUBLISH_TOKEN >> .npmrc
+      - run: echo email=$NPM_EMAIL >> .npmrc
+      - run: echo always-auth=true >> .npmrc
+      # update package version
+      - run: npm version --no-git-tag-version $CIRCLE_TAG
+      # push to npm
+      - run: npm publish
+
+workflows:
+  version: 2
+  mortgage-helpers:
+    jobs:
+      - tests
+      - publish:
+          filters:
+            tags:
+              only: /^[0-9.]+$/
+            branches:
+              ignore: /.*/

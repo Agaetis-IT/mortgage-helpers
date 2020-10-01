@@ -5,3 +5,5 @@ jest.config.js
 .gitignore
 .eslintrc
 .prettierrc
+.circleci
+yarn.lock
