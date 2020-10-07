@@ -31,12 +31,12 @@ test('SMO with negative interest', () => {
 
 test('incorrect SMO', () => {
   expect(() => mortgageHelpers.getSavingsMonthlyObjective(0, 0, 0, 0)).toThrow(
-    'Either there are missing/invalid params, or months is undefined or equal to 0 which is not possible'
+    "Either there are missing/invalid params, or \"months\" is equal to 0 or is negative, which is not possible"
   )
 })
 
 test('SMO with incorrect string param', () => {
   expect(() => mortgageHelpers.getSavingsMonthlyObjective('test', 10, 0, 36)).toThrow(
-    'Either there are missing/invalid params, or months is undefined or equal to 0 which is not possible'
+    "Either there are missing/invalid params, or \"months\" is equal to 0 or is negative, which is not possible"
   )
 })

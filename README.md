@@ -32,7 +32,7 @@ If one param is missing or is not a valid number, it will throw an error.
 
 ### getMaximumBorrowingCapacity
 
-This function will give you the maximum amount you can borrow, based on available revenue (monthly with deduced charges), interest rate, number of months and max debt ratio (percentage between 0 and 100).
+This function will give you the maximum amount you can borrow, based on available revenue (monthly with deduced charges), interest rate, number of months and max debt ratio (percentage between 1 and 100).
 
 ```js
 getMaximumBorrowingCapacity: (

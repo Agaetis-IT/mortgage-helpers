@@ -37,14 +37,14 @@ test('term savings with strings', () => {
   expect(mortgageHelpers.getSavingsCapitalAtMaturity('1000', '10', '36', '100')).toBe(5509.18)
 })
 
-test('incorrect TS', () => {
+test('incorrect SAM', () => {
   expect(() => mortgageHelpers.getSavingsCapitalAtMaturity(0, 10, 0, 100)).toThrow(
-    'Either there are missing/invalid params, or months is undefined or equal to 0 which is not possible'
+    "Either there are missing/invalid params, or \"months\" is equal to 0 or is negative, which is not possible"
   )
 })
 
-test('TS with incorrect string param', () => {
+test('SAM with incorrect string param', () => {
   expect(() => mortgageHelpers.getSavingsCapitalAtMaturity('test', 10, 3)).toThrow(
-    'Either there are missing/invalid params, or months is undefined or equal to 0 which is not possible'
+    "Either there are missing/invalid params, or \"months\" is equal to 0 or is negative, which is not possible"
   )
 })
