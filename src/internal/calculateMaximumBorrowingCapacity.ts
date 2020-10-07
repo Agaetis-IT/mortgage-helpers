@@ -16,7 +16,7 @@ const calculateMaximumBorrowingCapacity = (
   if (interestRate === 0) {
     return {
       loanAmount: +(availableRevenue * maximumDebtRatio * months).toFixed(2),
-      monthlyPayment: +(availableRevenue * maximumDebtRatio).toFixed(2),
+      monthlyPayment: +(availableRevenue * maximumDebtRatio).toFixed(2),      // TODO this should always be this
       interestsAmount: 0,
     }
   }
@@ -25,12 +25,12 @@ const calculateMaximumBorrowingCapacity = (
   const pow = Math.pow(1 + monthlyInterestRate, months)
   const totalLoanAmount = (availableRevenue * maximumDebtRatio * (pow - 1)) / (monthlyInterestRate * pow)
 
-  const monthlyPayment = totalLoanAmount / months
+  const monthlyPayment = totalLoanAmount / months                             // Instead of this
   const loanAmount = ((pow - 1) * monthlyPayment) / (monthlyInterestRate * pow)
 
   return {
     loanAmount: +loanAmount.toFixed(2),
-    monthlyPayment: +monthlyPayment.toFixed(3),
+    monthlyPayment: +monthlyPayment.toFixed(3),                               // Why fixed 3 ??
     interestsAmount: +(totalLoanAmount - loanAmount).toFixed(2),
   }
 }
