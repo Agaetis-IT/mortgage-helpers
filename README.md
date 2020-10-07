@@ -1,6 +1,8 @@
 # mortgage-helpers
 
-A suite of JavaScript functions to compute mortgage values, such as monthly payments or maximum borrowing capacity. I couldn't find a modern and pure JS library published on npm to do that, so here it is! It may need some more functions though, feel free to contribute!
+A suite of JavaScript functions to compute mortgage values, such as monthly payments or maximum borrowing capacity. It can also calculate the future value of a savings capital, since those subjects are quite close.
+
+I couldn't find a modern JS library published on npm to do that, so here it is! It has no dependencies and supports Typescript. It may need more functions though, if so feel free to contribute!
 
 ## Get started
 
@@ -9,9 +11,9 @@ A suite of JavaScript functions to compute mortgage values, such as monthly paym
 ## Usage
 
 ```js
-import mortgageHelpers from "mortgage-helpers";
+import mortgageHelpers from 'mortgage-helpers'
 
-mortgageHelpers.getMonthlyPayments(10000, 1, 24); // should return 421.02
+mortgageHelpers.getMonthlyPayments(10000, 1, 24) // should return 421.02
 ```
 
 You can also directly import functions like this: `import {getMonthlyPayments} from 'mortgage-helpers'`
@@ -23,11 +25,7 @@ You can also directly import functions like this: `import {getMonthlyPayments} f
 This function will give you the **fixed** monthly amount to pay for a mortgage, based on its amount, interest rate and number of months.
 
 ```js
-getMonthlyPayments: (
-  loanAmount: number,
-  interestRate: number,
-  months: number
-) => number;
+getMonthlyPayments: (loanAmount: number, interestRate: number, months: number) => number
 ```
 
 If one param is missing or is not a valid number, it will throw an error.
@@ -64,6 +62,36 @@ getInterestRate: (
 ```
 
 If one param is missing or is not a valid number, it will throw an error. Also please note this function may fail if computation is too hard (it mainly occurs if there are too many decimals in params)
+
+### getSavingsCapitalAtMaturity
+
+This function will give you a savings capital value at desired maturity, based on initial capital, interest rate, months duration and monthly installments.
+
+```js
+getSavingsCapitalAtMaturity: (
+  initialCapital: number,
+  yearlyInterest: number,
+  months: number,
+  monthlyPayments: number
+) => number
+```
+
+If one param is missing or is not a valid number, it will throw an error.
+
+### getSavingsMonthlyObjective
+
+This function will give you the required monthly installments to reach `objectiveCapital`, based on initial capital, interests and months duration. This is kinda the reverse of `getSavingsCapitalAtMaturity`.
+
+```js
+getSavingsMonthlyObjective: (
+  initialCapital: number,
+  objectiveCapital: number,
+  yearlyInterest: number,
+  months: number
+) => number
+```
+
+If one param is missing or is not a valid number, it will throw an error.
 
 ## Contributing
 

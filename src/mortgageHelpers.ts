@@ -3,6 +3,8 @@ import calculateMaximumBorrowingCapacity, {
   MaximumBorrowingCapacity,
 } from './internal/calculateMaximumBorrowingCapacity'
 import calculateInterestRate from './internal/calculateInterestRate'
+import calculateSavingsAtMaturity from './internal/calculateSavingsAtMaturity'
+import calculateSavingsMonthlyObjective from './internal/calculateSavingsMonthlyObjective'
 
 export const getMonthlyPayments = (loanAmount: number, interestRate: number, months: number): number => {
   if (!loanAmount || interestRate == null || !months || isNaN(loanAmount) || isNaN(interestRate) || isNaN(months)) {
@@ -42,8 +44,26 @@ export const getInterestRate = (loanAmount: number, montlhyPayments: number, mon
   return calculateInterestRate(+loanAmount, +montlhyPayments, +months)
 }
 
+export const getSavingsCapitalAtMaturity = (initialCapital: number, yearlyInterest: number, months: number, monthlyPayments: number): number => {
+  if (!months || yearlyInterest == null || isNaN(initialCapital) || isNaN(yearlyInterest) || isNaN(months)) {
+    throw 'Either there are missing/invalid params, or months is undefined or equal to 0 which is not possible'
+  }
+
+  return +calculateSavingsAtMaturity(+initialCapital, +yearlyInterest, +months, +monthlyPayments).toFixed(2)
+}
+
+export const getSavingsMonthlyObjective = (initialCapital: number, objectiveCapital: number, yearlyInterest: number, months: number): number => {
+  if (!months || !objectiveCapital || yearlyInterest == null || isNaN(initialCapital) || isNaN(yearlyInterest) || isNaN(objectiveCapital) || isNaN(months)) {
+    throw 'Either there are missing/invalid params, or months is undefined or equal to 0 which is not possible'
+  }
+
+  return +calculateSavingsMonthlyObjective(+initialCapital, +objectiveCapital, +yearlyInterest, +months).toFixed(2)
+}
+
 export default {
   getMonthlyPayments,
   getMaximumBorrowingCapacity,
   getInterestRate,
+  getSavingsCapitalAtMaturity,
+  getSavingsMonthlyObjective
 }
