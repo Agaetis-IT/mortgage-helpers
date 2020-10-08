@@ -14,11 +14,7 @@ jobs:
       # build
       - run: yarn --frozen-lockfile --non-interactive && yarn tsc
       # Auth
-      - run: echo _auth=$NPM_PUBLISH_TOKEN >> .npmrc
-      # - run: echo user=$NPM_USER >> .npmrc
-      - run: echo email=$NPM_EMAIL >> .npmrc
-      - run: echo always-auth=true >> .npmrc
-      - run: cat .npmrc
+      - run: echo "//registry.npmjs.org/:_authToken=$NPM_PUBLISH_TOKEN" >> .npmrc
       # update package version
       - run: npm version --no-git-tag-version $CIRCLE_TAG
       # push to npm
