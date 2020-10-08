@@ -17,12 +17,14 @@ jobs:
       - run: yarn --frozen-lockfile --non-interactive && yarn tsc
       # Auth
       - run: echo _auth=$NPM_PUBLISH_TOKEN >> .npmrc
+      # - run: echo user=$NPM_USER >> .npmrc
       - run: echo email=$NPM_EMAIL >> .npmrc
       - run: echo always-auth=true >> .npmrc
+      - run: cat .npmrc
       # update package version
       - run: npm version --no-git-tag-version $CIRCLE_TAG
       # push to npm
-      - run: npm publish
+      - run: npm publish --dry-run
 
 workflows:
   version: 2
