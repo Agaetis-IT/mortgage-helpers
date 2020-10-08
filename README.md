@@ -2,7 +2,7 @@
 
 A suite of JavaScript functions to compute mortgage values, such as monthly payments or maximum borrowing capacity. It can also calculate the future value of a savings capital, since those subjects are quite close.
 
-I couldn't find a modern JS library published on npm to do that, so here it is! It has no dependencies and supports Typescript. It may need more functions though, if so feel free to contribute!
+I couldn't find a modern JS library published on npm to do that, so here it is! It has no dependencies and supports Typescript. It may need more functions though, feel free to contribute!
 
 ## Get started
 
@@ -20,7 +20,7 @@ You can also directly import functions like this: `import {getMonthlyPayments} f
 
 ## API
 
-### getMonthlyPayments
+### getMonthlyPayments:
 
 This function will give you the **fixed** monthly amount to pay for a mortgage, based on its amount, interest rate and number of months.
 
@@ -30,7 +30,7 @@ getMonthlyPayments: (loanAmount: number, interestRate: number, months: number) =
 
 If one param is missing or is not a valid number, it will throw an error.
 
-### getMaximumBorrowingCapacity
+### getMaximumBorrowingCapacity:
 
 This function will give you the maximum amount you can borrow, based on available revenue (monthly with deduced charges), interest rate, number of months and max debt ratio (percentage between 1 and 100).
 
@@ -49,7 +49,7 @@ getMaximumBorrowingCapacity: (
 
 If one param is missing or is not a valid number, it will throw an error.
 
-### getInterestRate
+### getInterestRate:
 
 This function will give you a loan's interest rate, based on loan amount (what has been borrowed without interests), months duration and monthly payments. This is kinda the reverse of `getMonthlyPayments`. The interest rate will be a number with a maximum of 3 decimals.
 
@@ -63,7 +63,7 @@ getInterestRate: (
 
 If one param is missing or is not a valid number, it will throw an error. Also please note this function may fail if computation is too hard (it mainly occurs if there are too many decimals in params)
 
-### getSavingsCapitalAtMaturity
+### getSavingsCapitalAtMaturity:
 
 This function will give you a savings capital value at desired maturity, based on initial capital, interest rate, months duration and monthly installments.
 
@@ -78,7 +78,7 @@ getSavingsCapitalAtMaturity: (
 
 If one param is missing or is not a valid number, it will throw an error.
 
-### getSavingsMonthlyObjective
+### getSavingsMonthlyObjective:
 
 This function will give you the required monthly installments to reach `objectiveCapital`, based on initial capital, interests and months duration. This is kinda the reverse of `getSavingsCapitalAtMaturity`.
 
