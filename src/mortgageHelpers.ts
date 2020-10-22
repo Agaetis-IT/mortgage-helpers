@@ -49,22 +49,22 @@ export const getMaximumBorrowingCapacity = (
   return calculateMaximumBorrowingCapacity(+availableRevenue, +interestRate, +months, +maximumDebtRatio)
 }
 
-export const getInterestRate = (loanAmount: number, montlhyPayments: number, months: number): number => {
+export const getInterestRate = (loanAmount: number, monthlyPayments: number, months: number): number => {
   if (
     !loanAmount ||
-    !montlhyPayments ||
+    !monthlyPayments ||
     !months ||
     isNaN(loanAmount) ||
-    isNaN(montlhyPayments) ||
+    isNaN(monthlyPayments) ||
     isNaN(months) ||
     loanAmount < 0 ||
     months < 0 ||
-    montlhyPayments < 0
+    monthlyPayments < 0
   ) {
-    throw 'Either there are missing/invalid params, or one of "loanAmount", "months" or "montlhyPayments" is equal to 0 or is negative, which is not possible'
+    throw 'Either there are missing/invalid params, or one of "loanAmount", "months" or "monthlyPayments" is equal to 0 or is negative, which is not possible'
   }
 
-  return calculateInterestRate(+loanAmount, +montlhyPayments, +months)
+  return calculateInterestRate(+loanAmount, +monthlyPayments, +months)
 }
 
 export const getSavingsCapitalAtMaturity = (
