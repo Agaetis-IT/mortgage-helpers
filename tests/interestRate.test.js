@@ -19,6 +19,6 @@ test('correct interest rate computation 0 interest', () => {
 
 test('incorrect IRC', () => {
   expect(() => mortgageHelpers.getInterestRate(4000, undefined, undefined)).toThrow(
-    "Either there are missing/invalid params, or one of \"loanAmount\", \"months\" or \"montlhyPayments\" is equal to 0 or is negative, which is not possible"
+    'Either there are missing/invalid params, or one of "loanAmount", "months" or "monthlyPayments" is equal to 0 or is negative, which is not possible'
   )
 })

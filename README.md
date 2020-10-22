@@ -61,7 +61,7 @@ getInterestRate: (
 ) => number;
 ```
 
-If one param is missing or is not a valid number, it will throw an error. Also please note this function may fail if computation is too hard (it mainly occurs if there are too many decimals in params)
+If one param is missing or is not a valid number, it will throw an error. Also please note this function may fail if computation is too hard (it mainly occurs if there are too many decimals in params) OR if interest rate is negative which is not supported.
 
 ### getSavingsCapitalAtMaturity:
 
