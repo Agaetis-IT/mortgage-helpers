@@ -91,9 +91,9 @@ export const getSavingsCapitalAtMaturity = (
 
 export const getSavingsMonthlyObjective = (
   initialCapital: number,
-  objectiveCapital: number,
   yearlyInterest: number,
-  months: number
+  months: number,
+  objectiveCapital: number
 ): number => {
   if (
     !months ||
@@ -109,7 +109,7 @@ export const getSavingsMonthlyObjective = (
     throw 'Either there are missing/invalid params, or "months" is equal to 0 or is negative, which is not possible'
   }
 
-  return +calculateSavingsMonthlyObjective(+initialCapital, +objectiveCapital, +yearlyInterest, +months).toFixed(2)
+  return +calculateSavingsMonthlyObjective(+initialCapital, +yearlyInterest, +months, +objectiveCapital).toFixed(2)
 }
 
 export default {

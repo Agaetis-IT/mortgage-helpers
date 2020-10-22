@@ -1,8 +1,8 @@
 const calculateSavingsMonthlyObjective = (
   initialCapital: number,
-  objectiveCapital: number,
   yearlyInterest: number,
-  months: number
+  months: number,
+  objectiveCapital: number
 ): number => {
   if (yearlyInterest === 0) {
     return +(objectiveCapital - initialCapital).toFixed(4) / months
