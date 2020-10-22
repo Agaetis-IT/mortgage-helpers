@@ -1,6 +1,6 @@
 # mortgage-helpers
 
-A suite of JavaScript functions to compute mortgage values, such as monthly payments or maximum borrowing capacity. It can also calculate the future value of a savings capital, since those subjects are quite close.
+A suite of JavaScript functions to compute mortgage values, such as monthly payments or maximum borrowing capacity. It can also calculate the future value of a savings capital, since those subjects are quite close. Note most functions support negative interest rates.
 
 I couldn't find a modern JS library published on npm to do that, so here it is! It has no dependencies and supports Typescript. It may need more functions though, feel free to contribute!
 
@@ -85,9 +85,9 @@ This function will give you the required monthly installments to reach `objectiv
 ```js
 getSavingsMonthlyObjective: (
   initialCapital: number,
-  objectiveCapital: number,
   yearlyInterest: number,
-  months: number
+  months: number,
+  objectiveCapital: number
 ) => number
 ```
 
