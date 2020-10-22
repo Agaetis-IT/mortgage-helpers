@@ -7,7 +7,7 @@ const calculateInterestRate = (loanAmount: number, montlhyPayments: number, mont
   try {
     return +(findInterestRate(searchTarget, months, 0, 100) * 100).toFixed(3)
   } catch (e) {
-    throw "Couldn't find corresponding interest rate, the computation may be too hard for JavaScript (try reducing the amount of decimals if possible)"
+    throw "Couldn't find corresponding interest rate, the computation may be too hard for JavaScript (try reducing the amount of decimals if possible) OR the interest rate is negative, this is not supported"
   }
 }
 // recursive binary search for interest rate since equation is too complex
