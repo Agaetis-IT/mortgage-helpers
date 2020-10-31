@@ -81,9 +81,10 @@ export const getSavingsCapitalAtMaturity = (
     isNaN(initialCapital) ||
     isNaN(yearlyInterest) ||
     isNaN(months) ||
+    initialCapital < 0 ||
     months < 0
   ) {
-    throw 'Either there are missing/invalid params, or "months" is equal to 0 or is negative, which is not possible'
+    throw 'Either there are missing/invalid params, or "months" is <= 0 or "initialCapital" is negative, which is not possible'
   }
 
   return +calculateSavingsAtMaturity(+initialCapital, +yearlyInterest, +months, +monthlyPayments).toFixed(2)
@@ -104,9 +105,12 @@ export const getSavingsMonthlyObjective = (
     isNaN(yearlyInterest) ||
     isNaN(objectiveCapital) ||
     isNaN(months) ||
-    months < 0
+    months < 0 ||
+    initialCapital < 0 ||
+    objectiveCapital < 0 ||
+    objectiveCapital <= initialCapital
   ) {
-    throw 'Either there are missing/invalid params, or "months" is equal to 0 or is negative, which is not possible'
+    throw 'Either there are missing/invalid params, or one of the followings: "months" is <= 0, "initialCapital" or "objectiveCapital" is negative, or objectiveCapital is lower than initialCapital which is not allowed'
   }
 
   return +calculateSavingsMonthlyObjective(+initialCapital, +yearlyInterest, +months, +objectiveCapital).toFixed(2)

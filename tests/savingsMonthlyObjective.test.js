@@ -26,17 +26,17 @@ test('SMO with 0 interest', () => {
 })
 
 test('SMO with negative interest', () => {
-  expect(mortgageHelpers.getSavingsMonthlyObjective(1000, -1, 12, 1000)).toBe(0.84)
+  expect(mortgageHelpers.getSavingsMonthlyObjective(1000, -1, 12, 2000)).toBe(84.55)
 })
 
 test('incorrect SMO', () => {
   expect(() => mortgageHelpers.getSavingsMonthlyObjective(0, 0, 0, 0)).toThrow(
-    'Either there are missing/invalid params, or "months" is equal to 0 or is negative, which is not possible'
+    'Either there are missing/invalid params, or one of the followings: "months" is <= 0, "initialCapital" or "objectiveCapital" is negative, or objectiveCapital is lower than initialCapital which is not allowed'
   )
 })
 
 test('SMO with incorrect string param', () => {
   expect(() => mortgageHelpers.getSavingsMonthlyObjective('test', 10, 0, 36)).toThrow(
-    'Either there are missing/invalid params, or "months" is equal to 0 or is negative, which is not possible'
+    'Either there are missing/invalid params, or one of the followings: "months" is <= 0, "initialCapital" or "objectiveCapital" is negative, or objectiveCapital is lower than initialCapital which is not allowed'
   )
 })
