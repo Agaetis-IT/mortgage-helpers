@@ -22,7 +22,7 @@ You can also directly import functions like this: `import {getMonthlyPayments} f
 
 ### getMonthlyPayments:
 
-This function will give you the **fixed** monthly amount to pay for a mortgage, based on its amount, interest rate and number of months.
+This function will give you the **fixed** monthly amount to pay for a mortgage, based on its amount, interest rate and number of months. Loan amount and month duration must be positive.
 
 ```js
 getMonthlyPayments: (loanAmount: number, interestRate: number, months: number) => number
@@ -32,7 +32,7 @@ If one param is missing or is not a valid number, it will throw an error.
 
 ### getMaximumBorrowingCapacity:
 
-This function will give you the maximum amount you can borrow, based on available revenue (monthly with deduced charges), interest rate, number of months and max debt ratio (percentage between 1 and 100).
+This function will give you the maximum amount you can borrow, based on available revenue (monthly with deduced charges), interest rate, number of months and max debt ratio (percentage between 1 and 100). Available revenue must be positive along with month duration.
 
 ```js
 getMaximumBorrowingCapacity: (
@@ -61,11 +61,11 @@ getInterestRate: (
 ) => number;
 ```
 
-If one param is missing or is not a valid number, it will throw an error. Also please note this function may fail if computation is too hard (it mainly occurs if there are too many decimals in params) OR if interest rate is negative which is not supported.
+If one param is missing or is not a valid number, it will throw an error. Also please note this function may fail if computation is too hard (it mainly occurs if there are too many decimals in params) OR if interest rate is negative, which is not supported. This is indeed the only function here that does not.
 
 ### getSavingsCapitalAtMaturity:
 
-This function will give you a savings capital value at desired maturity, based on initial capital, interest rate, months duration and monthly installments.
+This function will give you a savings capital value at desired maturity, based on initial capital, interest rate, months duration and monthly installments. Initial capital must be equal to zero or positive and monthly payments are optional.
 
 ```js
 getSavingsCapitalAtMaturity: (
@@ -80,7 +80,7 @@ If one param is missing or is not a valid number, it will throw an error.
 
 ### getSavingsMonthlyObjective:
 
-This function will give you the required monthly installments to reach `objectiveCapital`, based on initial capital, interests and months duration. This is kinda the reverse of `getSavingsCapitalAtMaturity`.
+This function will give you the required monthly installments to reach `objectiveCapital`, based on initial capital, interests and months duration. This is kinda the reverse of `getSavingsCapitalAtMaturity`. Initial and objective capital must be equal to zero or positive, and objective capital must be greater than initial capital.
 
 ```js
 getSavingsMonthlyObjective: (
