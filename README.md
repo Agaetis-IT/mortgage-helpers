@@ -4,6 +4,8 @@ A suite of JavaScript functions to compute mortgage values, such as monthly paym
 
 I couldn't find a modern JS library published on npm to do that, so here it is! It has no dependencies and supports Typescript. It may need more functions though, feel free to contribute!
 
+Someone has made a working demo with an interface [here](https://supple.support-vision.fr/articles/[outil]-simulateur-de-credit-immobilier-calculateur-d-epargne-61#vous-etes-probablement-ici-pour-le-simulateur) (it's in french though but nothing hard to grasp, it's just a form using this lib).
+
 ## Get started
 
 `yarn add mortgage-helpers` or `npm i mortgage-helpers`
